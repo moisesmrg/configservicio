@@ -20,9 +20,8 @@ spring:
     database-platform: org.hibernate.dialect.H2Dialect
     hibernate:
       ddl-auto: none
-      naming:
-        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl # Hibernate cree adecuadamente las instrucciones SQL
-        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl  
+      naming.implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl # Hibernate cree adecuadamente las instrucciones SQL
+      naming.physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl  
 eureka:
   client:
     service-url:
