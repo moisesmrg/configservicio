@@ -1,5 +1,5 @@
 server:
-  port: {{ range(8082, 8700) | random }}
+  port: ${random.int[8082, 8700]}
   servlet:
     context-path: /
 spring:
