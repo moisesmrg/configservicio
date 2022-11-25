@@ -9,18 +9,18 @@ cloud:
           allowedMethods: "*"
           allowedHeaders: "*"
     routes:
-      - id: servCursos
-        uri: lb://servicio-cursos
-        predicates:
-          - Path=/scursos/**
-        filters:
-          - RewritePath=/scursos/*, /
       - id: servFormacion
-        uri: lb://cliente-formacion
-        predicates:
-          - Path=/sformacion/**
-        filters:
-          - RewritePath=/sformacion/*, /
+            uri: lb://cliente-formacion
+            predicates:
+              - Path=/sformacion/**
+            filters:
+              - RewritePath=/sformacion/*, /
+      - id: servCursos
+          uri: lb://servicio-cursos
+          predicates:
+            - Path=/scursos/**
+          filters:
+            - RewritePath=/scursos/*, /
 server:
   port: 9000
 eureka:
