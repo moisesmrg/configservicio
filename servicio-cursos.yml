@@ -1,5 +1,5 @@
 server:
-  port: { random.int(8082, 8700) }
+  port: 0
   servlet:
     context-path: /
 spring:
@@ -27,4 +27,4 @@ eureka:
     service-url:
       defaultZone: http://localhost:8761/eureka
   instance:
-    instance-id: instancia{ random:int(1,100) }
+    instance-id: ${spring.application.name}:${random.int}
