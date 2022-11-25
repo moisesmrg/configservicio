@@ -1,0 +1,24 @@
+spring:
+  cloud:
+    service-registry:
+      auto-registration:
+        enabled: false
+server:
+  servlet:
+    context-path: /
+  port: 8761
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+  server:
+    enable-self-preservation: false
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
