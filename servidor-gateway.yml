@@ -2,33 +2,28 @@ server:
   port: 9000
 spring:
   cloud:
-    config:
-      server:
-        git:          
-          default-label: main  
-cloud:
-  gateway:
-    default-filters:
-      - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
-    globalcors:
-      corsConfigurations:
-        '[/**]':
-          allowedOrigins: "*"
-          allowedMethods: "*"
-          allowedHeaders: "*"
-    routes:
-      - id: servFormacion
+    gateway:
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedMethods: "*"
+            allowedHeaders: "*"
+      routes:
+        - id: servFormacion
             uri: lb://cliente-formacion
             predicates:
               - Path=/sformacion/**
             filters:
               - RewritePath=/sformacion/*, /
-      - id: servCursos
-          uri: lb://servicio-cursos
-          predicates:
-            - Path=/scursos/**
-          filters:
-            - RewritePath=/scursos/*, /
+        - id: servCursos
+            uri: lb://servicio-cursos
+            predicates:
+              - Path=/scursos/**
+            filters:
+              - RewritePath=/scursos/*, /
 eureka:
   client:
     register-with-eureka: false
