@@ -1,5 +1,5 @@
 server:
-  port: {{ range(8081, 8700) | random }}
+  port: {{ range(8082, 8700) | random }}
   servlet:
     context-path: /
 spring:
